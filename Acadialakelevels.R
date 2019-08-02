@@ -81,7 +81,9 @@ server <- function(input, output) {
        scale_x_date(date_breaks = "1 month", date_labels = "%b") +
        labs(title = input$dropdown1) +
        geom_line(aes(group = year), color = "black", alpha = 0.1) +
-       geom_line(data = function(x) filter(x, year == input$slider1), size = 1)
+       geom_line(data = function(x) filter(x, year == input$slider1), size = 1) + 
+       ylab("Distance from Datum (ft)")
+  
    })
    
    alllakes <- reactive(
@@ -102,7 +104,7 @@ server <- function(input, output) {
                                                mode = "lines",
                                                connectgaps = FALSE)
      }
-     p
+     p 
    })
 }
 
